@@ -3,3 +3,6 @@
 
 using namespace std;
 
+Service_DHT11 :: DHT11(){
+  
+}

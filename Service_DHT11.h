@@ -7,10 +7,11 @@
 using namespace std;
 
 class DHT11{
-  public:
-  virtual int valeur;
   private:
+
+  public:
   virtual int GetData();
+  DHT11();
 
 };
 
