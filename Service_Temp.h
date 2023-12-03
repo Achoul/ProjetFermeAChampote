@@ -1,16 +1,17 @@
-#ifndef __Service_Temp
-#define __Service_Temp
+#ifndef __DHT11_Temp
+#define __DHT11_Temp
 
-#include <iostream>
-#include <stdio.h>
+#include "Service_DHT11.h"
+
 
 using namespace std;
 
-class Service_Temp : public DHT11{
+class Temperature : public DHT11{
   private:
-  int temperature;
+  char temperature;
   public:
-  virtual int GetData();
+  Temperature();
+  float GetData() override;
 
 };
 
