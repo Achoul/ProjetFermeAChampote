@@ -1,16 +1,19 @@
-#include "capteurNiveauEau.h"
+#include <iostream>
+#include <sstream>
+#include "LCD.h"
 
-CapteurNiveauEau cEau;
+using namespace std;
 
-void setup() {
-  // put your setup code here, to run once:
-  cEau.capteurEau_Init(INPUT_PULLUP);
+LCD lcd(16,2);
+
+void setup() 
+{
+
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  cEau.setLevel();
-  delay(200);
-  cEau.getLevel();
-  delay(1000);
+void loop() 
+{
+    lcd.LCD_DisplayData(52.3,78.2,true);
+
+    delay(3000);
 }
