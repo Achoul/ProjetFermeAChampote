@@ -19,7 +19,9 @@ class DHT11{
 
   public:
   virtual float GetData();
-  DHT11();
+  DHT11(int DHTPIN, int DHTTYPE);
+
+  class NoData{}; //classe de l'excepton si le DHT ne renvoie pas de données
 
 };
 

@@ -10,7 +10,7 @@ class Temperature : public DHT11{
   private:
   char temperature;
   public:
-  Temperature();
+  Temperature(int DHTPIN, int DHTTYPE);
   float GetData() override;
 
 };
