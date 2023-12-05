@@ -10,7 +10,7 @@ class Humidity : public DHT11{
   private:
   char humidity;
   public:
-  Humidity();
+  Humidity(int DHTPIN, int DHTTYPE);
   float GetData() override;
 
 };
