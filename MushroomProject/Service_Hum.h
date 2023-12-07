@@ -4,8 +4,10 @@
 #include "Service_DHT11.h"
 
 
-class Humidity : public DHT{
+class Humidity : public DHT11{
   public:
+
+  Humidity();
 
   float GetData() override;
 

@@ -1,19 +1,25 @@
 #include "Projet_mushroom.h"
 
 void mushroom::mushroom_init(){
-  humidity.DHT11_init(17); //pin 17 (D4)
+  humidity.DHT11_init(D5); //pin D5
   lcd.LCD_init();
+  Serial.begin(9600);
 }
 
 void mushroom::mushroom_loop(){
   try{
-    float h = humidity.GetData();
+    //float h = humidity.GetData();
 
     delay(50);
 
-    float t = temperature.GetData();
+    //float t = temperature.GetData();
 
-    lcd.LCD_Control(t, h, false);
+    Serial.print("humidity : ");
+    //Serial.println(h);
+    Serial.println("temperature : ");
+    //Serial.println(t);
+
+    //lcd.LCD_Control(t, h, false);
 
     delay(2000);
 

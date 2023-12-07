@@ -2,10 +2,12 @@
 
 using namespace std;
 
+Temperature::Temperature(){}
+
 float Temperature::GetData(){
     float t = dht->readTemperature();
 
-    if(t == DHT11::ERROR_CHECKSUM || t == DHT11::ERROR_TIMEOUT){
+    if(isnan(t)){
       throw ERR_DHT11_Temperature;
     }
 

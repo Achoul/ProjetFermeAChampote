@@ -1,13 +1,15 @@
 #ifndef __DHT11
 #define __DHT11
 
-#include <DHT11.h>
+#include "DHT.h"
 
 using namespace std;
 
+#define DHTTYPE 11 //DHT11
+
 enum Error {ERR_DHT11_Humidity, ERR_DHT11_Temperature}; //enumeration des exceptions
 
-class DHT{
+class DHT11{
   public : 
 
     void DHT11_init(int pin);
@@ -15,7 +17,7 @@ class DHT{
     virtual float GetData();
 
   protected :
-    DHT11* dht;
+    DHT* dht;
 };
 
 #endif

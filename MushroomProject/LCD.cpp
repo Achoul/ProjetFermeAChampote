@@ -2,6 +2,8 @@
 
 using namespace std;
 
+LCD::LCD(){}
+
 
 void LCD::LCD_init(){
   lcd.begin(16, 2);

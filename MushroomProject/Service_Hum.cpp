@@ -2,10 +2,12 @@
 
 using namespace std;
 
+Humidity::Humidity(){}
+
 float Humidity::GetData(){
   float h = dht->readHumidity();
 
-  if(h == DHT11::ERROR_CHECKSUM || h == DHT11::ERROR_TIMEOUT){
+  if(isnan(h)){
     throw ERR_DHT11_Humidity;
   }
 

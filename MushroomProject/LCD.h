@@ -7,6 +7,8 @@
 
 class LCD{
     public:
+
+      LCD();
         
         void LCD_init();
 

@@ -6,8 +6,10 @@
 
 using namespace std;
 
-class Temperature : public DHT{
+class Temperature : public DHT11{
   public:
+
+  Temperature();
 
   float GetData() override;
 
