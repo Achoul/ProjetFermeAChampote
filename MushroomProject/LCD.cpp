@@ -1,23 +1,11 @@
-#include <Arduino.h>
-
-#include <Wire.h>
-#include "rgb_lcd.h"
-#include <iostream>
-#include <sstream>
-#include <string>
 #include "LCD.h"
 
 using namespace std;
 
-LCD::LCD(){}
 
 void LCD::LCD_init(){
   lcd.begin(16, 2);
-  lcd.display();
-}
-
-LCD::~LCD(){
-  lcd.noDisplay();
+  //lcd.display();
 }
 
 void LCD::LCD_DisplayData(const String m){
@@ -61,4 +49,17 @@ void LCD::LCD_Control(const float temperature, const float humidity, const bool 
 
   LCD_DisplayData(m);
 
+}
+
+
+void LCD::LCD_DisplayError(const String m){
+  lcd.clear();
+  lcd.setRGB(150, 0, 0);
+  
+  char * message = new char[m.length() + 1];
+  strcpy(message, m.c_str());
+
+  lcd.print(message);
+
+  delete [] message;
 }

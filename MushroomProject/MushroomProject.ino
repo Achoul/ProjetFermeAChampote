@@ -1,5 +1,6 @@
 #include "Projet_mushroom.h"
 
+
 mushroom m;
 
 void setup() {
@@ -9,5 +10,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  m.mushroom_loop();
 }
