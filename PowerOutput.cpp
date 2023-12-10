@@ -11,11 +11,11 @@ PowerOutput :: PowerOutput(int PWRPIN){
 
 void PowerOutput :: SetOutputState(bool state){
   if(state){
-    digitalWrite(this->OutputPin, LOW);
+    digitalWrite(this->OutputPin, HIGH);
     this->OutputState = true;
   }
   else{
-    digitalWrite(this->OutputPin, HIGH);
+    digitalWrite(this->OutputPin, LOW);
     this->OutputState = false;
   }
 

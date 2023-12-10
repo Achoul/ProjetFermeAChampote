@@ -38,6 +38,7 @@ void Champipote::BoucleChampipote(){
     if(this->NivEAU){
       Serial.println("Max eau atteint");
       pwr2.SetOutputState(false); //éteint la pompe si niv max atteint
+      pwr1.SetOutputState(true); //allume le ventillo
     }
   }
 
@@ -57,13 +58,15 @@ void Champipote::BoucleChampipote(){
     }
   }
 
-  if(!OFF && !NivEAU && (h<70)){ //si ON, pas de débordement d'eau dans le bac et humidité < 70%
+  if(!OFF && !NivEAU && (this->h<70)){ //si ON, pas de débordement d'eau dans le bac et humidité < 70%
     pwr2.SetOutputState(true); //si manque d'humidité, allume la pompe
-    pwr1.SetOutputState(true); // et éteint le ventillo
+    pwr1.SetOutputState(false); // et éteint le ventillo
+    Serial.println("pompe on, ventillo off");
   }
-  else if(!OFF && !NivEAU && (h>90)){
+  else if(!OFF && !NivEAU && (this->h>90)){
     pwr2.SetOutputState(false); //inversement si le niveau d'humidité est supérieur à 90%
-    pwr1.SetOutputState(true);
+    pwr1.SetOutputState(true); //allume le ventillo
+    Serial.println("pompe off, ventillo on");
   }
 
   if(!OFF){
@@ -75,7 +78,6 @@ void Champipote::BoucleChampipote(){
     Serial.print("h  ");
     Serial.println(this->h);
     lcd.LCD_DisplayData(this->t, this->h, this->NivEAU);
-    delay(500);
   }
 
 
