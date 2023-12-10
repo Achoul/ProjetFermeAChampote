@@ -23,7 +23,7 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
   String m;
   char* message;
 
-  lcd.clear();
+
 
   if(waterLevel){
     m = "Max level water";
@@ -38,7 +38,6 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
 
   delay(1000);
 
-  lcd.clear();
 
   lcd.setColorWhite();
 

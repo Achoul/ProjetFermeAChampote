@@ -1,34 +1,26 @@
-#include <arduino.h>
-#include "Sensor_TempHum.h"
+#include "Champipote.h"
+
+#define pin_dht D3
+#define type_dht DHT11
+#define pin_led D8
+#define pin_btn D4
+#define pin_ventilo D7
+#define pin_pompe D5
+#define pin_capt_eau A0
+#define seuil_EAU 260
+#define nb_Column 16
+#define nb_row 2
 
 
-
-float t = 0;
-float h = 0;
-TempHum temp1(D8,DHT11);//Le DHT est pété, le 5V n'était visiblement pas une bonne idée.
+Champipote champ(pin_dht, type_dht, pin_ventilo, pin_pompe, pin_led, pin_btn, pin_capt_eau, seuil_EAU, nb_Column, nb_row);
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  champ.InitChampipote();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  delay(1000);
-  try{
-    h = temp1.GetHum();
-  }
-  catch(TempHum :: NoDataH){
-    h = 69;
-  }
-
-  try{
-    t = temp1.GetTemp();
-  }
-  catch(TempHum :: NoDataT){
-    t = 23;
-  }
-  
-  Serial.println(h);
-  Serial.println(t);
+  champ.BoucleChampipote();
+ 
 }
+  
