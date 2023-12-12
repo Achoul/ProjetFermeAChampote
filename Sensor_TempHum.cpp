@@ -14,7 +14,7 @@ float TempHum::GetHum(){
   if (!isnan(h)){
     return h;
   }
-  throw NoDataH();
+  throw NoDataH;
 }
 
 float TempHum::GetTemp(){
@@ -22,5 +22,5 @@ float TempHum::GetTemp(){
   if (!isnan(h) || h <= 2){
     return h;
   }
-  throw NoDataT();
+  throw NoDataT;
 }

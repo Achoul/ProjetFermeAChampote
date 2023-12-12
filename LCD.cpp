@@ -11,11 +11,16 @@ using namespace std;
 
 LCD::LCD(int columns, int rows){
   lcd.begin(columns, rows);
-  lcd.display();
+  lcd.noDisplay();
 }
 
 LCD::~LCD(){
   lcd.noDisplay();
+}
+
+void LCD::LCD_ShutDown(bool d){
+  if(d) lcd.noDisplay();
+  else lcd.display();
 }
 
 void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
@@ -26,7 +31,8 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
 
 
   if(waterLevel){
-    m = "Max level water";
+    lcd.setCursor(0,0);
+    m = "Max level water ";
 
     lcd.setRGB(150, 0, 0);
 
@@ -34,6 +40,8 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
     strcpy(message, m.c_str());
 
     lcd.print(message);
+    lcd.setCursor(0,1);
+    lcd.print("                ");
   }
 
   delay(1000);
@@ -45,6 +53,7 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
 
   m = "Temp : ";
   m += temperature;
+  m += "   ";
 
   message = new char[m.length() + 1]; 
   strcpy(message, m.c_str());
@@ -61,6 +70,8 @@ void LCD::LCD_DisplayData(float temperature, float humidity, bool waterLevel){
 
 
   lcd.print(message);
+
+  delay(1000);
 
   delete [] message;
 

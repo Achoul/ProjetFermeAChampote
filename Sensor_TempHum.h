@@ -1,13 +1,9 @@
 #ifndef __DHT11blablabla
 #define __DHT11blablabla
 
-#include <Arduino.h>
 
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
-#include <DHT_U.h>
-#include <iostream>
-#include <stdio.h>
 
 
 
@@ -27,8 +23,9 @@ class TempHum{
   float GetTemp();
   float GetHum();
 
-  class NoDataH{};
-  class NoDataT{};
+  enum Error{NoDataH, NoDataT};
+  //class NoDataH{};
+  //class NoDataT{};
 
 
 };

@@ -11,6 +11,8 @@ class LCD{
 
         ~LCD();
 
+        void LCD_ShutDown(bool d);
+
         void LCD_DisplayData(float temperature, float humidity, bool waterLevel);
 
     private:
