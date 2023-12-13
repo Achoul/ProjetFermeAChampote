@@ -32,6 +32,8 @@ void Champipote::BoucleChampipote(){
     this->OFF = true;
     btn1.SetLedState(true);
     //Serial.println("OFF");
+    pwr2.SetOutputState(false);
+    pwr1.SetOutputState(false);
     lcd.LCD_ShutDown(true);
     delay(1000);
   }
