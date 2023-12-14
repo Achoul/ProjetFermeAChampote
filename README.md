@@ -1,4 +1,5 @@
 # ProjetFermeAChampote 
+# voir la branche repriseProj pour avoir le code final !
 
 Cahier des charges :
   Créer une cellule pour faire pousser des champignons avec un controle automatique de l'humidité.
